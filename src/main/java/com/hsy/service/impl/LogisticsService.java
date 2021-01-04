@@ -26,15 +26,18 @@ public class LogisticsService implements ILogisticsService {
     @Autowired
     private IUserDao userDao;
 
+    /**
+     *发送信息
+     */
     @Override
     public void sendSMS(int logisticsId) throws ShopException {
-        // 根据物流查询订单ID和物流状态
+        // 根据物流id查询物流信息
         Logistics logistics = logisticsDao.load(logisticsId);
-        // 根据订单查询用户ID
+        // 根据物流信息里面的订单id查询出对应订单信息
         Order order = orderDao.load(logistics.getOrderId());
-        // 根据消费者ID查询电话
+        // 根据订单信息里面的用户id查询出对应的用户
         User user = userDao.load(order.getConsumeId());
-        // 发送短信
+        // 发送短信，传递的参数：用户的手机号、物流的状态
         SendSMSUtil.sendSMS(user.getPhone(), logistics.getStatus());
     }
 

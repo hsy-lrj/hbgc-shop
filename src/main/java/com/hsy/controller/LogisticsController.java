@@ -94,7 +94,10 @@ public class LogisticsController {
 			return new AjaxObj(0, e.getMessage());
 		}
 	}
-	
+
+	/**
+	 *  参数：物流的id
+	 */
 	@RequestMapping(value = "/sendSMS", method = RequestMethod.POST)
 	@ResponseBody
 	public AjaxObj sendSMS(int logisticsId) {
