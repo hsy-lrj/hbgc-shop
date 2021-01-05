@@ -58,4 +58,5 @@ public interface IUserService {
     public void delete(int userId) throws ShopException;
 
     public void update(User user);
+
 }

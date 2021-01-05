@@ -17,7 +17,12 @@ public class UserService implements IUserService {
 	@Autowired
 	private IGoodsDao goodsDao;
 
-	// -----------------------------
+	/**
+	 * 后台管理系统登录
+	 * @param user
+	 * @return
+	 * @throws ShopException
+	 */
 	public User login(User user) throws ShopException {
 		User loginUser = userDao.LoadByUserName(user.getUsername());
 		if (loginUser == null) {
@@ -29,6 +34,13 @@ public class UserService implements IUserService {
 		}
 		return loginUser;
 	}
+
+	/**
+	 * 前台门户登录
+	 * @param user
+	 * @return
+	 * @throws ShopException
+	 */
 	public User doorLogin(User user) throws ShopException {
 		User loginUser = userDao.LoadByUserName(user.getUsername());
 		if (loginUser == null) {
@@ -41,7 +53,6 @@ public class UserService implements IUserService {
 	
 	/**
 	 * 分页查询
-	 * 1.吧查询条件前后加上%
 	 */
 	@Override
 	public Pager<User> find(String search, int page, int size) {
@@ -50,6 +61,11 @@ public class UserService implements IUserService {
 		return userDao.find(search, page, size);
 	}
 
+	/**
+	 * 前台门户注册
+	 * @param user
+	 * @throws ShopException
+	 */
 	@Override
 	public void register(User user) throws ShopException {
 		// 注册是针对普通用户,并且和add方法非常类似,不过注册的账号权限就是普通用户
@@ -68,6 +84,11 @@ public class UserService implements IUserService {
 		return userDao.load(userId);
 	}
 
+	/**
+	 * 后台用户添加
+	 * @param user
+	 * @throws ShopException
+	 */
 	@Override
 	public void add(User user) throws ShopException {
 		// 根据用户名查询,如果用户名存在 就抛异常
@@ -100,6 +121,5 @@ public class UserService implements IUserService {
 		//调用dao层方法
 		userDao.update(user);
 	}
-
 
 }

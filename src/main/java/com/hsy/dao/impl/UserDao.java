@@ -50,6 +50,12 @@ public class UserDao implements IUserDao {
 		pager.setCode(0);
 		return pager;
 	}
+
+	/**
+	 * 根据用户名查询用户
+	 * @param username
+	 * @return
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public User LoadByUserName(String username) {

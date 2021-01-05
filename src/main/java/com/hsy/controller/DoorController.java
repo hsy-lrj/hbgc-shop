@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 购物车
+ * 前台门户接口
  */
 @Controller
 @RequestMapping("/door")
@@ -37,8 +37,7 @@ public class DoorController {
 	private IOrderService orderService;
 
 	/**
-	 * 登陆
-	 * 
+	 * 前台门户登陆
 	 * @param user
 	 * @return
 	 */
@@ -55,7 +54,7 @@ public class DoorController {
 	}
 
 	/**
-	 * 所有商品
+	 * 展示所有商品，分页，条件
 	 * 
 	 * @param page
 	 * @param limit
@@ -75,7 +74,7 @@ public class DoorController {
 	}
 
 	/**
-	 * 根据商品ID 获取商品详情
+	 * 根据商品ID获取商品详情
 	 * 
 	 * @param goodsId
 	 * @return
@@ -89,7 +88,6 @@ public class DoorController {
 
 	/**
 	 * 加入购物车
-	 * 
 	 * @param shoppingCart
 	 * @return
 	 */
@@ -106,8 +104,7 @@ public class DoorController {
 	}
 
 	/**
-	 * 购物车列表
-	 * 
+	 * 展示购物车列表
 	 * @param userId
 	 * @return
 	 */

@@ -158,4 +158,5 @@ public class UserController {
 			return new AjaxObj(0, e.getMessage());
 		}
 	}
+
 }

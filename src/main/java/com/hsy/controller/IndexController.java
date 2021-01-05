@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
 @Controller
 public class IndexController {
 
@@ -41,7 +42,11 @@ public class IndexController {
         }
     }
 
-    // 退出登陆
+    /**
+     * 退出登陆
+      * @param session
+     * @return
+     */
     @RequestMapping("/logout")
     @ResponseBody
     public AjaxObj logout(HttpSession session) {
@@ -50,6 +55,11 @@ public class IndexController {
         return new AjaxObj(200, "退出登录");
     }
 
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public AjaxObj register(User user) {
